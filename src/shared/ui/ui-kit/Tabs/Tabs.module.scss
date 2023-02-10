@@ -1,0 +1,8 @@
+.Container{
+  display: flex;
+  [class^="active"] {
+    div:before{
+      content: '';
+    }
+  }
+}

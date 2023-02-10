@@ -1,0 +1,1 @@
+export { PaymentsPageAsync as PaymentsPage } from './ui/PaymentsPage.async';
