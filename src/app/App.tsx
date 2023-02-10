@@ -1,18 +1,13 @@
-import { Routers } from './router';
-import { Header } from '../widgets/Header';
-import { SideBar } from '../widgets/SideBar';
+import { Main } from './ui/Main';
+import { Auth } from './ui/Auth';
+import { useState } from 'react';
 
 
 function App() {
+  const [isAuth, setIsAuth] = useState<boolean>(false);
   return (
     <main className="bg-main w-screen h-screen">
-      <div className="flex">
-        <SideBar/>
-        <div className="grow">
-          <Header/>
-          <Routers/>
-        </div>
-      </div>
+      {isAuth ? <Main/> : <Auth/> }
     </main>
   );
 }

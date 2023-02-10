@@ -1,12 +1,12 @@
 import { RegistrationForm } from 'entities/ui/Forms'
 
-const CompanyPage = () => {
+const RegistrationPage = () => {
 	return (
 		<div>
-			CompanyPage
+			RegistrationPage
 			<RegistrationForm/>
 		</div>
 	);
 };
 
-export default CompanyPage;
+export default RegistrationPage;
