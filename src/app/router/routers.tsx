@@ -9,15 +9,17 @@ import { Suspense } from 'react';
 
 export const Routers = () => {
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
-			<Routes>
-				<Route path={'/'} element={<FinancePage /> }/>
-				<Route path={'/pay'} element={<PaymentsPage />}/>
-				<Route path={'/purchases'} element={<PurchasesPage />}/>
-				<Route path={'/storage'} element={<StoragePage /> }/>
-				<Route path={'/counterparties'} element={<CounterpartiesPage />}/>
-				<Route path={'/company'} element={<CompanyPage />}/>
-			</Routes>
-		</Suspense>
+		<div className={'p-5'}>
+			<Suspense fallback={<div>Loading...</div>}>
+				<Routes>
+					<Route path={'/'} element={<FinancePage /> }/>
+					<Route path={'/pay'} element={<PaymentsPage />}/>
+					<Route path={'/purchases'} element={<PurchasesPage />}/>
+					<Route path={'/storage'} element={<StoragePage /> }/>
+					<Route path={'/counterparties'} element={<CounterpartiesPage />}/>
+					<Route path={'/company'} element={<CompanyPage />}/>
+				</Routes>
+			</Suspense>
+		</div>
 	)
 }

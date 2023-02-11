@@ -2,6 +2,7 @@ import { useState, FocusEvent } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FormField, Button } from 'shared/ui/ui-kit';
+import { Link } from 'react-router-dom';
 import * as yup from 'yup';
 
 export interface RegistrationFormType {
@@ -64,7 +65,7 @@ export const RegistrationForm = (): JSX.Element => {
 	};
 
 	return (
-		<div className={'bg-white p-5 rounded-lg min-w-[350px]'}>
+		<div className={'flex flex-col bg-white p-5 rounded-lg min-w-[350px]'}>
 			<form autoComplete="none" onSubmit={handleSubmit(onSubmit)}>
 				<div className={'grid gap-y-4'}>
 					<FormField
@@ -117,6 +118,7 @@ export const RegistrationForm = (): JSX.Element => {
           </Button>
         </div>
 			</form>
+			<Link className="mt-4 ml-auto text-purple-600" to={'/login'}>Войти</Link>
 		</div>
 	)
 }

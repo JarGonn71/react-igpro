@@ -15,20 +15,7 @@ export const Tabs = ({tabs}: TabsProps) => {
 	return (
 		<div className={styles.Container}>
 			{tabs.map(item => <NavLink key={item.url} to={item.url}>
-				<div className="
-				p-4
-				cursor-pointer
-				relative
-				before:absolute
-				before:content-none
-				before:w-full
-				before:h-[2px]
-				before:bottom-0
-				before:left-0
-				before:bg-clr-blue
-				hover:before:content-['']
-				hover:text-clr-blue"
-				>
+				<div className={styles.Item}>
 					{item.name}
 				</div>
 			</NavLink>)}

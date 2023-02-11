@@ -1,4 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from 'shared/providers/AuthProvider'
+import { SideBarProvider } from './shared/providers/SIdeBarProvider';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './app/App';
@@ -10,7 +12,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <BrowserRouter>
-    <App />
+    <AuthProvider>
+      <SideBarProvider>
+        <App/>
+      </SideBarProvider>
+    </AuthProvider>
   </BrowserRouter>
 );
 

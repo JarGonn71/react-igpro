@@ -1,0 +1,11 @@
+.SideBar{
+  transition: width .2s ease-in-out;
+}
+
+.sideBarHeader{
+  @apply p-4 relative flex items-center
+}
+
+.sideBarMenu{
+  @apply px-4
+}

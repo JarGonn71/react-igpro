@@ -1,10 +1,9 @@
 import { Main } from './ui/Main';
 import { Auth } from './ui/Auth';
-import { useState } from 'react';
-
+import { useAuth } from 'shared/providers/AuthProvider';
 
 function App() {
-  const [isAuth, setIsAuth] = useState<boolean>(false);
+  const { isAuth } = useAuth();
   return (
     <main className="bg-main w-screen h-screen">
       {isAuth ? <Main/> : <Auth/> }
