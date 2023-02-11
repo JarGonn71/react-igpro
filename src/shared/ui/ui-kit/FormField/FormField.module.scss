@@ -1,0 +1,7 @@
+.isValid{
+  @apply bg-isValid bg-no-repeat bg-[center_right_1rem]
+}
+
+.error{
+  @apply absolute text-xs top-full text-error
+}

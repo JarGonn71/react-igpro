@@ -3,7 +3,7 @@ import { RegistrationForm } from 'entities/ui/Forms'
 const RegistrationPage = () => {
 	return (
 		<div>
-			RegistrationPage
+      <div className={'mb-3'}>Registation</div>
 			<RegistrationForm/>
 		</div>
 	);

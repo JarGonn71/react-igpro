@@ -2,6 +2,8 @@ import { FC, FocusEvent } from 'react';
 import { Input } from 'shared/ui/ui-kit'
 import classNames from 'classnames';
 
+import styles from './FormField.module.scss';
+
 export type FormFieldType = "text" | "password" | "tel" | "textarea";
 
 export interface FormFieldProps {
@@ -14,6 +16,7 @@ export interface FormFieldProps {
 	type: FormFieldType;
 	isFocused?: boolean;
 	isRequired?: boolean;
+  isValid?: boolean;
 	onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
 	onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
 }
@@ -27,14 +30,16 @@ export const FormField:FC<FormFieldProps> = (
 		type,
 		register,
 		isFocused,
+    isValid,
 		onBlur,
 		onFocus
 	}): JSX.Element => {
 	const firstName = register && register(name)
+
 	return (
-		<div className={classNames(className)}>
+		<div className={classNames('relative ', className)}>
 			<label htmlFor={name}>{label}</label>
-			{type === "text" &&
+			{(type === "text" || type === "password") &&
 				<>
 					<Input
 						name={name}
@@ -43,11 +48,11 @@ export const FormField:FC<FormFieldProps> = (
 						onBlur={onBlur}
 						onFocus={onFocus}
 						{...firstName}
+            className={classNames( isValid && styles.isValid, className)}
 					/>
-					{error && <div>{error}</div> }
+					{error && <div className={styles.error}>{error}</div> }
 				</>
 			}
-
 		</div>
 	)
 }

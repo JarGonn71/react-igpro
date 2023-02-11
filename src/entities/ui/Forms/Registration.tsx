@@ -1,36 +1,39 @@
-import { FC, useState, FocusEvent } from 'react';
+import { useState, FocusEvent } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FormField } from 'shared/ui/ui-kit';
+import { FormField, Button } from 'shared/ui/ui-kit';
 import * as yup from 'yup';
 
 export interface RegistrationFormType {
 	firstName: string;
-	lastName: string;
-	phoneNumber: string;
 	email: string;
 	password: string;
 	rePassword: string;
 }
 
-type fieldType = 'firstName' | 'lastName' | 'phoneNumber' | 'email' | 'password' | 'rePassword'
+type fieldType = 'firstName' | 'email' | 'password' | 'rePassword'
 
 const schema = yup.object().shape({
 	firstName: yup
 		.string()
 		.matches(/^([^0-9]*)$/, 'Имя не должно содержать цифры')
 		.required('Укажите имя'),
-	lastName: yup
+  email: yup
 		.string()
-		.matches(/^([^0-9]*)$/, 'Фамилия не должна содержать цифры')
-		.required('Укажите фамилию'),
+    .email('Некорректая почта')
+    .required('Укажите почту'),
+  password: yup
+    .string()
+    .required()  ,
+  rePassword: yup
+    .string()
+    .required()
+    .oneOf([yup.ref("password")], "Пороли не совпадают")
 })
 
-export const RegistrationForm:FC = (): JSX.Element => {
+export const RegistrationForm = (): JSX.Element => {
 	const [isFocused, setIsFocused] = useState({
 		firstName: false,
-		lastName: false,
-		phoneNumber: false,
 		email: false,
 		password: false,
 		rePassword: false
@@ -38,11 +41,12 @@ export const RegistrationForm:FC = (): JSX.Element => {
 
 	const { register, watch, handleSubmit, formState: { errors } } = useForm<RegistrationFormType>({
 		resolver: yupResolver(schema),
+    mode: 'onBlur',
 	});
 
 	const watchAllFields = watch();
 
-	const onSubmit = (data:RegistrationFormType) => {
+	const onSubmit = (data: RegistrationFormType) => {
 		console.log("data ", data);
 	}
 
@@ -60,9 +64,9 @@ export const RegistrationForm:FC = (): JSX.Element => {
 	};
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<div>
+		<div className={'bg-white p-5 rounded-lg min-w-[350px]'}>
+			<form autoComplete="none" onSubmit={handleSubmit(onSubmit)}>
+				<div className={'grid gap-y-4'}>
 					<FormField
 						label={'Имя'}
 						name={'firstName'}
@@ -71,22 +75,47 @@ export const RegistrationForm:FC = (): JSX.Element => {
 						error={errors?.firstName?.message}
 						isFocused={isFocused.firstName}
 						isRequired
+            isValid={!errors?.firstName && Boolean(watchAllFields['firstName'])}
 						onFocus={handleFocus}
 						onBlur={handleBlur}
 					/>
 					<FormField
-						label={'Фамилия'}
-						name={'lastName'}
+						label={'Почта'}
+						name={'email'}
 						type={'text'}
 						register={register}
-						error={errors?.lastName?.message}
-						isFocused={isFocused.lastName}
+						error={errors?.email?.message}
+						isFocused={isFocused.email}
 						isRequired
 						onFocus={handleFocus}
 						onBlur={handleBlur}
 					/>
-				</div>
-				<button>submit</button>
+          <FormField
+            label={'Пороль'}
+            name={'password'}
+            type={'password'}
+            register={register}
+            error={errors?.password?.message}
+            isFocused={isFocused.password}
+            isRequired
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          />
+          <FormField
+            label={'Повторите пороль'}
+            name={'rePassword'}
+            type={'password'}
+            register={register}
+            error={errors?.rePassword?.message}
+            isFocused={isFocused.rePassword}
+            isRequired
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          />
+          <Button>
+            Регистрация
+          </Button>
+        </div>
 			</form>
 		</div>
 	)

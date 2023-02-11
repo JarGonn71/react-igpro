@@ -2,7 +2,7 @@ import { RoutersAuth } from 'app/router'
 
 export const Auth = () => {
 	return (
-		<div>
+		<div className={'flex justify-center items-center h-full'}>
 			<RoutersAuth/>
 		</div>
 	)

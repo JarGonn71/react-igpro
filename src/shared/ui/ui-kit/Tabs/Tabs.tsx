@@ -25,9 +25,9 @@ export const Tabs = ({tabs}: TabsProps) => {
 				before:h-[2px]
 				before:bottom-0
 				before:left-0
-				before:bg-blue
+				before:bg-clr-blue
 				hover:before:content-['']
-				hover:text-blue"
+				hover:text-clr-blue"
 				>
 					{item.name}
 				</div>
