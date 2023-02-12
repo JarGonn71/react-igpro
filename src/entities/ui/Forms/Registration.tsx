@@ -12,7 +12,7 @@ export interface RegistrationFormType {
 	rePassword: string;
 }
 
-type fieldType = 'firstName' | 'email' | 'password' | 'rePassword'
+type fieldType = 'firstName' | 'email' | 'password' | 'rePassword';
 
 const schema = yup.object().shape({
 	firstName: yup

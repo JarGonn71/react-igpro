@@ -1,6 +1,8 @@
 import { DetailedHTMLProps, HTMLAttributes, forwardRef, ForwardedRef } from 'react';
 import ClassNames from 'classnames';
 
+import styles from './Input.module.scss';
+
 export interface TypeInput extends DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement> {
 	className?: string;
 	name: string;
@@ -14,7 +16,7 @@ export const Input = forwardRef((
 	return (
 		<>
 			<input
-				className={ClassNames('form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none outline-none', {  '!border-error focus:border-error': error }, className)}
+				className={ClassNames(styles.Input, {  '!border-error focus:border-error': error }, className)}
 				name={name}
 				type={type}
 				ref={ref}
