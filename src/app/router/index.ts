@@ -1,2 +1,2 @@
-export { Routers } from './routers'
-export { RoutersAuth } from './routersAuth'
+export { Routers } from './ui/routers'
+export { RoutersAuth } from './ui/routersAuth'
