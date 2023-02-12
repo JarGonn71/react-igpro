@@ -8,7 +8,7 @@ interface BlockProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HT
 
 export const Block: FC<BlockProps> = ({ children, className }) => {
 	return (
-		<div className={classNames("flex p-6 rounded-lg shadow-lg bg-white ", className)}>
+		<div className={classNames("flex p-6 rounded-lg shadow-lg bg-white", className)}>
 			{children}
 		</div>
 	)

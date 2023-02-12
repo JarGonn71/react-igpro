@@ -3,7 +3,7 @@ import { RatingStarts } from 'shared/ui'
 
 import styles from './TableCounterparties.module.scss';
 
-type Counterparty = {
+export type Counterparty = {
 	name: string;
 	type: number;
 	rating: number;
@@ -14,21 +14,21 @@ type Counterparty = {
 
 export interface TableCounterpartiesProps {
 	fields: string[];
-	list: Counterparty[]
+	list: Counterparty[] | undefined;
 }
 
-export const TableCounterparties = ({fields, list}: TableCounterpartiesProps): JSX.Element => {
+export const TableCounterparties = ({fields, list }: TableCounterpartiesProps): JSX.Element => {
 	return (
 		<div className={styles.Table}>
 			<div className={styles.TableHeader}>
 				{fields.map(field => (
-					<div className={styles.TableHeaderItem}>
+					<div key={field} className={styles.TableHeaderItem}>
 						{field}
 					</div>
 				))}
 			</div>
-			{list.map(Counterparty => (
-				<div className={styles.TableContentItem}>
+			{list?.map(Counterparty => (
+				<div key={Counterparty.id} className={styles.TableContentItem}>
 					<div className="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4">
 						{Counterparty.name}
 					</div>

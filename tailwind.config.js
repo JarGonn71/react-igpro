@@ -36,6 +36,9 @@ module.exports = {
       width: {
         sideBar: '280px'
       },
+	    minWidth: {
+		    sideBar: '280px'
+	    },
 	    gridTemplateColumns: {
 		    'table': '4fr 1fr 1fr 1fr 1fr',
 		    'gridCompany': '1fr 2fr',
