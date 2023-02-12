@@ -1,4 +1,3 @@
-import { RouterProps } from 'react-router-dom';
 import {
 	FinancePage,
 	CompanyPage,
@@ -7,7 +6,7 @@ import {
 	PurchasesPage,
 	StoragePage
 } from 'pages';
-import { IndexRouteProps, PathRouteProps, RouteProps } from 'react-router/dist/lib/components';
+import { PathRouteProps } from 'react-router/dist/lib/components';
 
 export enum AppRouters {
 	FINANCE = 'Finance',

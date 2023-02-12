@@ -1,0 +1,1 @@
+export { RatingStarts } from './RatingStarts';

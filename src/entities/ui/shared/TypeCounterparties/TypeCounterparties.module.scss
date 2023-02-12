@@ -1,0 +1,21 @@
+.Container{
+  @apply text-gray-600 dark:text-gray-400 font-normal py-px px-2.5 text-center rounded-md text-sm tracking-normal leading-4;
+  &.Subcontractor{
+    @apply text-subcontractor bg-light-subcontractor;
+  }
+  &.Provider{
+    @apply text-provider bg-light-provider;
+  }
+  &.Customer{
+    @apply text-customer bg-light-customer;
+  }
+  &.Investor{
+    @apply text-investor bg-light-investor;
+  }
+  &.Staffer{
+    @apply text-staffer bg-light-staffer;
+  }
+  &.Another{
+    @apply text-another bg-light-another;
+  }
+}
