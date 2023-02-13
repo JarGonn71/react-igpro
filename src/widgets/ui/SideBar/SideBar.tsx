@@ -18,7 +18,7 @@ export const SideBar = () => {
 	}, [setIsOpen])
 
 	return (
-		<div className={ClassNames(styles.SideBar, "h-screen bg-sideBar text-white ", isOpen ? 'min-w-sideBar' : 'min-w-0')}>
+		<div className={ClassNames(styles.SideBar, "h-full min-h-screen bg-sideBar text-white ", isOpen ? 'min-w-sideBar' : 'min-w-0')}>
 			<div className={styles.sideBarHeader}>
 				<ReactLogo/>
 				<Hide onClick={handleHideSideBar} className="absolute right-4 cursor-pointer"/>

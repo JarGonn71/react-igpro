@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { Tabs } from 'shared/ui/ui-kit/Tabs';
 import { Routers } from 'shared/router';
 import { ReactComponent as OpenSideBar } from 'shared/assets/icons/sideBar-open.svg';
-import { useSideBar } from '../../shared/providers/SIdeBarProvider';
+import { useSideBar } from '../../../shared/providers/SIdeBarProvider';
 
 export const Header = () => {
 	const {isOpen, setIsOpen} = useSideBar()

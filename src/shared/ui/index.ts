@@ -1,4 +1,5 @@
 import { RatingStarts } from './RatingStarts';
+import { TypeCounterparties } from './TypeCounterparties';
 import {
 	Input,
 	InputPhone,
@@ -13,5 +14,6 @@ export {
 	FormField,
 	Button,
 	Block,
-	RatingStarts
+	RatingStarts,
+	TypeCounterparties
 }

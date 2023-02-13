@@ -1,5 +1,5 @@
-import { SideBar } from 'widgets/SideBar';
-import { Header } from 'widgets/Header';
+import { SideBar } from 'widgets/ui/SideBar';
+import { Header } from 'widgets/ui/Header';
 import { Routers } from 'app/router';
 
 export const Main = (): JSX.Element => {

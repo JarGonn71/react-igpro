@@ -1,4 +1,4 @@
-import { TypeCounterparties } from '../TypeCounterparties';
+import { TypeCounterparties } from 'shared/ui/TypeCounterparties';
 import { RatingStarts } from 'shared/ui'
 
 import styles from './TableCounterparties.module.scss';

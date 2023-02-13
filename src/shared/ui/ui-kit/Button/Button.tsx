@@ -13,9 +13,10 @@ export interface TypeButton extends DetailedHTMLProps<HTMLAttributes<HTMLButtonE
   themes?: typeButtons;
 }
 
-export const Button: FC<TypeButton> = ({ children, themes= typeButtons.PRIMARY, className }) => {
+export const Button: FC<TypeButton> = ({ children, themes= typeButtons.PRIMARY, className , ...props}) => {
   return (
     <button
+      {...props}
       className={classNames(styles.Button, styles[themes], className)}>
       {children}
     </button>

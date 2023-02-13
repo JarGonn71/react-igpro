@@ -9,7 +9,7 @@ export const Routers = () => {
 	return (
 		<div>
 			{title && <HeaderPage titlePage={title}/>}
-			<div className={'p-5'}>
+			<div className={'p-5 box-border'}>
 				<Suspense fallback={<div>Loading...</div>}>
 					<Routes>
 						{Object.values(routersConfig).map(route => (
